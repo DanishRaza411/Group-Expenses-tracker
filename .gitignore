@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+.env
+.env.local
+
+# Logs
+logs
+*.log
+log/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Vite
+frontend/.vite/
+frontend/dist/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Optional: MongoDB data dump
+dump/
+
+# Optional: .next (if experimenting with Next.js)
+.next/
