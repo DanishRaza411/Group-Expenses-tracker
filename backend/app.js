@@ -5,11 +5,13 @@ import MongoStore from 'connect-mongo';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
+//config
 import connectDB from './config/db.js';
 import configurePassport from './config/passport.js';
 
-
+//import Routes
 import authRoutes from './routes/authRoutes.js';
+import groupRoutes from './routes/groupRoutes.js';
 
 
 dotenv.config();
@@ -45,5 +47,6 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/groups', groupRoutes);
 
 export default app;
