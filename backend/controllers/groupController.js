@@ -134,14 +134,6 @@ export const removeMember = async (req, res) => {
 
     const currentUserId = req.user._id.toString();
 
-    // Check if current user is an admin
-    const isAdmin = group.members.some(
-      m => m.user._id.toString() === currentUserId && m.role === 'admin'
-    );
-
-    if (!isAdmin) {
-      return res.status(403).json({ message: 'Only admins can remove members' });
-    }
 
     // If admin is trying to remove themselves
     if (memberId.toString() === currentUserId) {

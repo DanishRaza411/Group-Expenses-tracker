@@ -12,6 +12,8 @@ import configurePassport from './config/passport.js';
 //import Routes
 import authRoutes from './routes/authRoutes.js';
 import groupRoutes from './routes/groupRoutes.js';
+import expenseRoutes from "./routes/expenseRoutes.js";
+
 
 
 dotenv.config();
@@ -48,5 +50,7 @@ app.use(passport.session());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/groups', groupRoutes);
+app.use("/api/expenses", expenseRoutes);
 
+ 
 export default app;

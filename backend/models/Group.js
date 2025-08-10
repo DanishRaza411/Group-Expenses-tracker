@@ -32,7 +32,13 @@ const GroupSchema = new mongoose.Schema(
           default: 'member'
         }
       }
-    ]
+    ],
+    expenses: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Expense"
+  }
+]
   },
   {
     timestamps: true

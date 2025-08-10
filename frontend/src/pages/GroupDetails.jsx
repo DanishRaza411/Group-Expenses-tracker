@@ -4,6 +4,7 @@
   import axios from 'axios';
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import ExpenseCard from '../components/ExpenseCard';
 
   // You need to call toast.configure() in your App root if not already
   // toast.configure();
@@ -213,6 +214,11 @@
             </div>
           </div>
         )}
+
+        {/* Expenses section */}
+        <div className='py-10'>
+          <ExpenseCard groupId={group._id} />
+        </div>
       </div>
     );
   }
