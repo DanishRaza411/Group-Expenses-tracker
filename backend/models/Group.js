@@ -38,7 +38,12 @@ const GroupSchema = new mongoose.Schema(
     type: mongoose.Schema.Types.ObjectId,
     ref: "Expense"
   }
-]
+],
+balances: {
+  type: Map,
+  of: Map,
+  default: {}
+}
   },
   {
     timestamps: true

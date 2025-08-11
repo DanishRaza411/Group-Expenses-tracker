@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import AddExpenseForm from '../pages/AddExpenseForm';
 import axios from 'axios';
+import Balances from './Balances';
 
 export default function GroupPage({ groupId }) {
   const [expenses, setExpenses] = useState([]);
+
 
   const fetchExpenses = async () => {
     try {
@@ -26,11 +28,13 @@ export default function GroupPage({ groupId }) {
       <h1 className="text-xl font-bold mb-4">Group Expenses</h1>
 
       <AddExpenseForm
-        groupId={groupId}
-        onExpenseAdded={(newExpense) =>
-          setExpenses((prev) => [...prev, newExpense])
-        }
-      />
+  groupId={groupId}
+  onExpenseAdded={() => {
+    fetchExpenses();
+  }}
+
+/>
+
 
       <div className="mt-6">
         {expenses.map((exp) => (
@@ -39,6 +43,9 @@ export default function GroupPage({ groupId }) {
           </div>
         ))}
       </div>
+
+      <Balances groupId={groupId} />
+
     </div>
   );
 }

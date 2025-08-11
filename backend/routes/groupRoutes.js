@@ -4,6 +4,8 @@ import { deleteGroup, updateGroup, addMember, removeMember } from '../controller
 import { ensureAuthenticated, ensureGroupAdmin } from '../middlewares/authMiddleware.js';
 import { getGroupExpenses } from '../controllers/expenseController.js';
 import { checkGroupMember } from '../middlewares/checkGroupMember.js';
+import { getGroupBalances } from "../controllers/getGroupBalances.js";
+
 import Group from '../models/Group.js';
 
 const router = express.Router();
@@ -34,6 +36,13 @@ router.delete('/:groupId/members/:memberId',ensureAuthenticated, ensureGroupAdmi
 
 // get expenses for a group
 router.get('/:groupId/expenses', ensureAuthenticated, checkGroupMember, getGroupExpenses);
+
+//balance
+router.get(
+  "/:groupId/balances",
+  ensureAuthenticated,
+  getGroupBalances
+);
 
 
 export default router;
